@@ -14,7 +14,180 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          academic_level: string | null
+          created_at: string
+          daily_hours: number
+          id: string
+          name: string | null
+          onboarded: boolean
+          preferred_time: string | null
+          study_method: string | null
+          user_id: string
+        }
+        Insert: {
+          academic_level?: string | null
+          created_at?: string
+          daily_hours?: number
+          id?: string
+          name?: string | null
+          onboarded?: boolean
+          preferred_time?: string | null
+          study_method?: string | null
+          user_id: string
+        }
+        Update: {
+          academic_level?: string | null
+          created_at?: string
+          daily_hours?: number
+          id?: string
+          name?: string | null
+          onboarded?: boolean
+          preferred_time?: string | null
+          study_method?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      study_plans: {
+        Row: {
+          created_at: string
+          daily_hours: number
+          end_date: string
+          generated_data: Json
+          id: string
+          is_demo: boolean
+          start_date: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          daily_hours: number
+          end_date: string
+          generated_data: Json
+          id?: string
+          is_demo?: boolean
+          start_date: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          daily_hours?: number
+          end_date?: string
+          generated_data?: Json
+          id?: string
+          is_demo?: boolean
+          start_date?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      subjects: {
+        Row: {
+          created_at: string
+          difficulty: string
+          exam_date: string | null
+          id: string
+          is_demo: boolean
+          name: string
+          preparation_percentage: number
+          priority: string
+          user_id: string
+          weak_topics: string[]
+        }
+        Insert: {
+          created_at?: string
+          difficulty?: string
+          exam_date?: string | null
+          id?: string
+          is_demo?: boolean
+          name: string
+          preparation_percentage?: number
+          priority?: string
+          user_id: string
+          weak_topics?: string[]
+        }
+        Update: {
+          created_at?: string
+          difficulty?: string
+          exam_date?: string | null
+          id?: string
+          is_demo?: boolean
+          name?: string
+          preparation_percentage?: number
+          priority?: string
+          user_id?: string
+          weak_topics?: string[]
+        }
+        Relationships: []
+      }
+      tasks: {
+        Row: {
+          completed: boolean
+          completed_at: string | null
+          created_at: string
+          description: string | null
+          duration: number
+          id: string
+          is_demo: boolean
+          scheduled_date: string
+          start_time: string
+          study_plan_id: string | null
+          subject_id: string | null
+          task_type: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean
+          completed_at?: string | null
+          created_at?: string
+          description?: string | null
+          duration?: number
+          id?: string
+          is_demo?: boolean
+          scheduled_date: string
+          start_time?: string
+          study_plan_id?: string | null
+          subject_id?: string | null
+          task_type?: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          completed?: boolean
+          completed_at?: string | null
+          created_at?: string
+          description?: string | null
+          duration?: number
+          id?: string
+          is_demo?: boolean
+          scheduled_date?: string
+          start_time?: string
+          study_plan_id?: string | null
+          subject_id?: string | null
+          task_type?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tasks_study_plan_id_fkey"
+            columns: ["study_plan_id"]
+            isOneToOne: false
+            referencedRelation: "study_plans"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "tasks_subject_id_fkey"
+            columns: ["subject_id"]
+            isOneToOne: false
+            referencedRelation: "subjects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
