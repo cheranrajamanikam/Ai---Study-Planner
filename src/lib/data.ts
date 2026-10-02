@@ -42,7 +42,7 @@ export function useSubjects() {
   return useQuery({
     queryKey: qk.subjects,
     queryFn: async () =>
-      check(await supabase.from("subjects").select("*").order("exam_date", { ascending: true, nullsFirst: false })),
+      check(await supabase.from("subjects").select("*").order("exam_date", { ascending: true, nullsFirst: false })) ?? [],
   });
 }
 
@@ -56,7 +56,7 @@ export function useTasks() {
           .select("*")
           .order("scheduled_date")
           .order("start_time"),
-      ),
+      ) ?? [],
   });
 }
 
