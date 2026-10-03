@@ -1,77 +1,90 @@
-# 🏢 AI Building Operations Agent
+# 📚 AI Study Planner
 
-> An autonomous AI operations manager for smart buildings that detects anomalies, investigates problems, makes governed decisions, executes authorized actions, and verifies the outcome.
-
-![Status](https://img.shields.io/badge/Status-Hackathon%20MVP-orange)
-![Built With](https://img.shields.io/badge/Built%20With-React%20%7C%20TypeScript%20%7C%20AI-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
-
----
+> An AI-powered study planning application that creates personalized, realistic study schedules based on subjects, exam dates, preparation levels, weak topics, and available study time.
 
 ## 🚀 Overview
 
-Buildings generate thousands of operational signals every day — energy consumption, temperature, occupancy, HVAC performance, elevator status, water pressure, and security events.
+AI Study Planner helps students turn their academic workload into a structured and manageable daily study plan.
 
-Traditional building-management systems mostly **monitor and alert**.
+Instead of manually creating schedules, students provide:
 
-The **AI Building Operations Agent** goes further.
+- Their subjects
+- Exam dates
+- Preparation level
+- Subject difficulty
+- Weak topics
+- Available study hours
+- Preferred study times
+- Available study days
 
-It acts as an intelligent operations manager that can:
-
-**Observe → Investigate → Decide → Govern → Act → Verify → Audit**
-
-The system monitors a simulated smart building, detects operational anomalies, reasons about their possible causes, creates action plans, checks governance policies, executes permitted actions, and verifies whether those actions actually solved the problem.
-
-The project was built as a hackathon prototype demonstrating the concept of **Create → Govern → Automate**.
-
----
-
-# 🎯 Problem
-
-Modern buildings produce large amounts of operational data, but responding to problems often requires human operators to manually:
-
-- Monitor multiple systems
-- Identify abnormal behavior
-- Investigate the cause
-- Decide what action to take
-- Contact the appropriate team
-- Execute the response
-- Verify the outcome
-- Maintain incident records
-
-This creates delays and increases operational workload.
-
-The goal of this project is to introduce **governed AI autonomy** into building operations.
+The application generates a personalized study schedule and helps students track their progress.
 
 ---
 
-# 💡 Solution
+## 🎯 Problem
 
-The AI Building Operations Agent provides a centralized command center where an AI agent can reason about building conditions and coordinate responses.
+Students often struggle with:
 
-### Core workflow
+- Planning what to study each day
+- Prioritizing difficult subjects
+- Managing multiple exams
+- Allocating enough time to weak topics
+- Maintaining consistency
+- Adjusting schedules after missing study sessions
+- Tracking progress
+
+Traditional timetables are static and require students to manually update them.
+
+### Solution
+
+AI Study Planner creates a dynamic study plan that adapts to the student's:
+
+**Subjects → Exams → Difficulty → Weak Topics → Availability → Progress**
+
+---
+
+# ✨ Features
+
+## 🤖 AI-Built Study Schedules
+
+The application generates a personalized schedule based on:
+
+- Exam dates
+- Preparation level
+- Subject difficulty
+- Weak topics
+- Available hours
+- Preferred study times
+- Available days
+
+The schedule prioritizes subjects according to urgency and preparation needs.
+
+---
+
+## 📅 Daily Study Schedule
+
+Students can view their daily sessions including:
+
+- Subject
+- Topic
+- Start time
+- End time
+- Session type
+- Completion status
+
+Example:
 
 ```text
-Building Sensors
-       ↓
-   AI Agent
-       ↓
-  Investigation
-       ↓
- Action Planning
-       ↓
-Governance Engine
-       ↓
- ┌─────┴─────┐
- ↓           ↓
-Auto       Approval
- ↓           ↓
-Action      Human
-             ↓
-          Approval
-             ↓
-        Action Engine
-             ↓
-         Verification
-             ↓
-          Audit Log
+Today's Sessions
+
+09:00 – 10:00
+Data Structures — Arrays
+
+10:15 – 11:15
+Operating Systems — Processes
+
+14:00 – 15:00
+Mathematics — Probability
+
+19:00 – 19:30
+Revision
