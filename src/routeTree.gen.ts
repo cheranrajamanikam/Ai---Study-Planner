@@ -14,13 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthenticatedAppRouteRouteImport } from './routes/_authenticated/_app/route'
-import { Route as AuthenticatedOnboardingRouteImport } from './routes/_authenticated/onboarding'
-import { Route as AuthenticatedAppAnalyticsRouteImport } from './routes/_authenticated/_app/analytics'
-import { Route as AuthenticatedAppCalendarRouteImport } from './routes/_authenticated/_app/calendar'
 import { Route as AuthenticatedAppDashboardRouteImport } from './routes/_authenticated/_app/dashboard'
-import { Route as AuthenticatedAppPlanRouteImport } from './routes/_authenticated/_app/plan'
-import { Route as AuthenticatedAppSubjectsRouteImport } from './routes/_authenticated/_app/subjects'
-import { Route as AuthenticatedAppTasksRouteImport } from './routes/_authenticated/_app/tasks'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -45,69 +39,24 @@ const AuthenticatedAppRouteRoute = AuthenticatedAppRouteRouteImport.update({
   id: '/_app',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedOnboardingRoute = AuthenticatedOnboardingRouteImport.update({
-  id: '/onboarding',
-  path: '/onboarding',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedAppAnalyticsRoute =
-  AuthenticatedAppAnalyticsRouteImport.update({
-    id: '/analytics',
-    path: '/analytics',
-    getParentRoute: () => AuthenticatedAppRouteRoute,
-  } as any)
-const AuthenticatedAppCalendarRoute =
-  AuthenticatedAppCalendarRouteImport.update({
-    id: '/calendar',
-    path: '/calendar',
-    getParentRoute: () => AuthenticatedAppRouteRoute,
-  } as any)
 const AuthenticatedAppDashboardRoute =
   AuthenticatedAppDashboardRouteImport.update({
     id: '/dashboard',
     path: '/dashboard',
     getParentRoute: () => AuthenticatedAppRouteRoute,
   } as any)
-const AuthenticatedAppPlanRoute = AuthenticatedAppPlanRouteImport.update({
-  id: '/plan',
-  path: '/plan',
-  getParentRoute: () => AuthenticatedAppRouteRoute,
-} as any)
-const AuthenticatedAppSubjectsRoute =
-  AuthenticatedAppSubjectsRouteImport.update({
-    id: '/subjects',
-    path: '/subjects',
-    getParentRoute: () => AuthenticatedAppRouteRoute,
-  } as any)
-const AuthenticatedAppTasksRoute = AuthenticatedAppTasksRouteImport.update({
-  id: '/tasks',
-  path: '/tasks',
-  getParentRoute: () => AuthenticatedAppRouteRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/reset-password': typeof ResetPasswordRoute
-  '/onboarding': typeof AuthenticatedOnboardingRoute
-  '/analytics': typeof AuthenticatedAppAnalyticsRoute
-  '/calendar': typeof AuthenticatedAppCalendarRoute
   '/dashboard': typeof AuthenticatedAppDashboardRoute
-  '/plan': typeof AuthenticatedAppPlanRoute
-  '/subjects': typeof AuthenticatedAppSubjectsRoute
-  '/tasks': typeof AuthenticatedAppTasksRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/reset-password': typeof ResetPasswordRoute
-  '/onboarding': typeof AuthenticatedOnboardingRoute
-  '/analytics': typeof AuthenticatedAppAnalyticsRoute
-  '/calendar': typeof AuthenticatedAppCalendarRoute
   '/dashboard': typeof AuthenticatedAppDashboardRoute
-  '/plan': typeof AuthenticatedAppPlanRoute
-  '/subjects': typeof AuthenticatedAppSubjectsRoute
-  '/tasks': typeof AuthenticatedAppTasksRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -116,39 +65,13 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/reset-password': typeof ResetPasswordRoute
   '/_authenticated/_app': typeof AuthenticatedAppRouteRouteWithChildren
-  '/_authenticated/onboarding': typeof AuthenticatedOnboardingRoute
-  '/_authenticated/_app/analytics': typeof AuthenticatedAppAnalyticsRoute
-  '/_authenticated/_app/calendar': typeof AuthenticatedAppCalendarRoute
   '/_authenticated/_app/dashboard': typeof AuthenticatedAppDashboardRoute
-  '/_authenticated/_app/plan': typeof AuthenticatedAppPlanRoute
-  '/_authenticated/_app/subjects': typeof AuthenticatedAppSubjectsRoute
-  '/_authenticated/_app/tasks': typeof AuthenticatedAppTasksRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/auth'
-    | '/reset-password'
-    | '/onboarding'
-    | '/analytics'
-    | '/calendar'
-    | '/dashboard'
-    | '/plan'
-    | '/subjects'
-    | '/tasks'
+  fullPaths: '/' | '/auth' | '/reset-password' | '/dashboard'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/auth'
-    | '/reset-password'
-    | '/onboarding'
-    | '/analytics'
-    | '/calendar'
-    | '/dashboard'
-    | '/plan'
-    | '/subjects'
-    | '/tasks'
+  to: '/' | '/auth' | '/reset-password' | '/dashboard'
   id:
     | '__root__'
     | '/'
@@ -156,13 +79,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/reset-password'
     | '/_authenticated/_app'
-    | '/_authenticated/onboarding'
-    | '/_authenticated/_app/analytics'
-    | '/_authenticated/_app/calendar'
     | '/_authenticated/_app/dashboard'
-    | '/_authenticated/_app/plan'
-    | '/_authenticated/_app/subjects'
-    | '/_authenticated/_app/tasks'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -209,27 +126,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppRouteRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/onboarding': {
-      id: '/_authenticated/onboarding'
-      path: '/onboarding'
-      fullPath: '/onboarding'
-      preLoaderRoute: typeof AuthenticatedOnboardingRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/_app/analytics': {
-      id: '/_authenticated/_app/analytics'
-      path: '/analytics'
-      fullPath: '/analytics'
-      preLoaderRoute: typeof AuthenticatedAppAnalyticsRouteImport
-      parentRoute: typeof AuthenticatedAppRouteRoute
-    }
-    '/_authenticated/_app/calendar': {
-      id: '/_authenticated/_app/calendar'
-      path: '/calendar'
-      fullPath: '/calendar'
-      preLoaderRoute: typeof AuthenticatedAppCalendarRouteImport
-      parentRoute: typeof AuthenticatedAppRouteRoute
-    }
     '/_authenticated/_app/dashboard': {
       id: '/_authenticated/_app/dashboard'
       path: '/dashboard'
@@ -237,46 +133,15 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppDashboardRouteImport
       parentRoute: typeof AuthenticatedAppRouteRoute
     }
-    '/_authenticated/_app/plan': {
-      id: '/_authenticated/_app/plan'
-      path: '/plan'
-      fullPath: '/plan'
-      preLoaderRoute: typeof AuthenticatedAppPlanRouteImport
-      parentRoute: typeof AuthenticatedAppRouteRoute
-    }
-    '/_authenticated/_app/subjects': {
-      id: '/_authenticated/_app/subjects'
-      path: '/subjects'
-      fullPath: '/subjects'
-      preLoaderRoute: typeof AuthenticatedAppSubjectsRouteImport
-      parentRoute: typeof AuthenticatedAppRouteRoute
-    }
-    '/_authenticated/_app/tasks': {
-      id: '/_authenticated/_app/tasks'
-      path: '/tasks'
-      fullPath: '/tasks'
-      preLoaderRoute: typeof AuthenticatedAppTasksRouteImport
-      parentRoute: typeof AuthenticatedAppRouteRoute
-    }
   }
 }
 
 interface AuthenticatedAppRouteRouteChildren {
-  AuthenticatedAppAnalyticsRoute: typeof AuthenticatedAppAnalyticsRoute
-  AuthenticatedAppCalendarRoute: typeof AuthenticatedAppCalendarRoute
   AuthenticatedAppDashboardRoute: typeof AuthenticatedAppDashboardRoute
-  AuthenticatedAppPlanRoute: typeof AuthenticatedAppPlanRoute
-  AuthenticatedAppSubjectsRoute: typeof AuthenticatedAppSubjectsRoute
-  AuthenticatedAppTasksRoute: typeof AuthenticatedAppTasksRoute
 }
 
 const AuthenticatedAppRouteRouteChildren: AuthenticatedAppRouteRouteChildren = {
-  AuthenticatedAppAnalyticsRoute: AuthenticatedAppAnalyticsRoute,
-  AuthenticatedAppCalendarRoute: AuthenticatedAppCalendarRoute,
   AuthenticatedAppDashboardRoute: AuthenticatedAppDashboardRoute,
-  AuthenticatedAppPlanRoute: AuthenticatedAppPlanRoute,
-  AuthenticatedAppSubjectsRoute: AuthenticatedAppSubjectsRoute,
-  AuthenticatedAppTasksRoute: AuthenticatedAppTasksRoute,
 }
 
 const AuthenticatedAppRouteRouteWithChildren =
@@ -286,12 +151,10 @@ const AuthenticatedAppRouteRouteWithChildren =
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedAppRouteRoute: typeof AuthenticatedAppRouteRouteWithChildren
-  AuthenticatedOnboardingRoute: typeof AuthenticatedOnboardingRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAppRouteRoute: AuthenticatedAppRouteRouteWithChildren,
-  AuthenticatedOnboardingRoute: AuthenticatedOnboardingRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
